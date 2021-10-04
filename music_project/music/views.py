@@ -40,11 +40,11 @@ class SongDetail(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
-        return Respnse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def delete(self, request, pk):
         song= self.get_object(pk)
         song.delete()
-        return Respnse(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
         
